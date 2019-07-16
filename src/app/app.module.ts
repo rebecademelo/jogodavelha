@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from "@angular/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { JogadorService } from "./jogador/jogador.service";
+import { JogadorModule } from "./jogador/jogador.module";
 
 @NgModule({
   declarations: [
@@ -10,9 +13,11 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    JogadorModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [JogadorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

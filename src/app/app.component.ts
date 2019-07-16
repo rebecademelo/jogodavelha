@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { JogadorService } from "./jogador/jogador.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'jogodavelha';
+  title = 'Jogo da Velha';
+
+  constructor(public jService: JogadorService){
+
+  }
+
+  ngOnInit(){
+    console.log('Teste');
+  }
 }
