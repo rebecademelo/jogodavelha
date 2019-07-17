@@ -1,8 +1,30 @@
+<h2>Escolha os personagens para começar a jogar</h2>
+<div>
+  <p>Personagem 1:</p>
+  <input type="text" name="firstCharacter" [(ngModel)]="firstCharacter"/>
+  <button type="button" (click)="buscarPersonagem(firstCharacter, 1)">Pesquisar</button>
+  <p>Personagem 2:</p>
+  <input type="text" name="secondCharacter" [(ngModel)]="secondCharacter"/>
+  <button type="button" (click)="buscarPersonagem(secondCharacter, 2)">Pesquisar</button>
+</div>
+
 <table>
-  <tr *ngFor="let jogador of service.jogadores; let i = index; trackBy: trackByFn">
+  <!--<tr *ngFor="let jogador of service.jogadores; let i = index; trackBy: trackByFn">
     <td>{{jogador.name}}</td>
     <td>
       <img style="width: 50px; height: 50px;" src="{{jogador.thumbnail.path}}.{{jogador.thumbnail.extension}}">
+    </td>
+  </tr>-->
+  <tr>
+    <td>{{service.jog1.name}}</td>
+    <td>
+      <img style="width: 50px; height: 50px;" src="{{service.jog1.thumbnail.path}}.{{service.jog1.thumbnail.extension}}">
+    </td>
+  </tr>
+  <tr>
+    <td>{{service.jog2.name}}</td>
+    <td>
+      <img style="width: 50px; height: 50px;" src="{{service.jog2.thumbnail.path}}.{{service.jog2.thumbnail.extension}}">
     </td>
   </tr>
 </table>
