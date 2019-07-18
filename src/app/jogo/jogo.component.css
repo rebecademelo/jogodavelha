@@ -1,0 +1,23 @@
+.img-X {
+    width: 33%;
+    margin: 0;
+    padding: 0;
+    background-image: url('../../assets/imagens/X.png');
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+.img-O {
+    width: 33%;
+    margin: 0;
+    padding: 0;
+    background-image: url('../../assets/imagens/O.png');
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { JogadorService } from "./jogador/jogador.service";
+import { JogoService } from "./jogo/jogo.service";
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,11 @@ import { JogadorService } from "./jogador/jogador.service";
 export class AppComponent {
   title = 'Jogo da Velha';
 
-  constructor(public jService: JogadorService){
+  constructor(public jService: JogadorService, public jogoService: JogoService) {
 
   }
 
   ngOnInit(){
-    console.log('Teste');
+    
   }
 }

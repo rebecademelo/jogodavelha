@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { NgModule } from '@angular/core';
 import { JogadorService } from "./jogador.service";
 import { Jogador } from '../model/jogador';
-import { FormBuilder, FormGroup, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-jogador',
@@ -19,7 +15,7 @@ export class JogadorComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
   }
 
   buscarPersonagem(personagem: string, tipo: number) {
@@ -60,8 +56,25 @@ export class JogadorComponent implements OnInit {
             this.service.jogadorX = this.service.jogador2;
             this.service.jogadorO = this.service.jogador1;
           }
+          
+          this.setJogadorX(this.service.jogadorX);
         }
     });
   }
 
+  setJogadorX(jogX: Jogador) {
+    this.service.jogX = jogX;
+  }
+
+  getJogadorX() {
+    return this.service.jogX;
+  }
+  
+  setJogadorO(jogO: Jogador) {
+    this.service.jogO = jogO;
+  }
+
+  getJogadorO() {
+    return this.service.jogO;
+  }
 }

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Jogador } from "./../model/jogador";
 import { Md5 } from 'ts-md5/dist/md5';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -12,6 +11,9 @@ export class JogadorService {
   public jogadores = new Array<Jogador>();
   jogador1: Jogador;
   jogador2: Jogador;
+  
+  jogX: Jogador;
+  jogO: Jogador;
 
   jogadorX: Jogador;
   jogadorO: Jogador;
@@ -26,7 +28,7 @@ export class JogadorService {
     
   }
 
-  getNomeJogador(name){
+  getNomeJogador(name) {
     var timestamp = Number(new Date());
     var hash = Md5.hashStr(timestamp + '5b11c81d22bf12e95875873f039ce3ad0dab666e' + '331c004ec798621bab61b479f4b36e11');
 
