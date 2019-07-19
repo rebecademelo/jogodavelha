@@ -1,0 +1,80 @@
+@import "../../assets/Semantic-UI-CSS-master/semantic.css";
+@import url(https://fonts.googleapis.com/css?family=Marvel);
+
+h2, input {
+    font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+}
+
+button:hover{
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 4s;
+}
+
+.header {
+    background-color: #ed1d24;
+    color: #fff;
+}
+
+.btn-buscar {
+    background-color: black !important;
+}
+
+.jogador {
+    width: 215px;
+}
+
+/* Standard syntax */
+@keyframes example {
+    from {background-color: red;}
+    to {background-color: yellow;}
+}
+
+@media (min-width: 1200px) {
+    .jog1 {
+        align-content: center;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+
+    .jog2 {
+        align-content: center;
+        margin-left: 15px;
+        margin-bottom: 15px;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    .jog1 {
+        align-content: center;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+
+    .jog2 {
+        align-content: center;
+        margin-left: 5px;
+        margin-bottom: 5px;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .jog1 {
+        align-content: center;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+
+    .jog2 {
+        align-content: center;
+        margin-left: 5px;
+        margin-bottom: 5px;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+}

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 import { JogadorService } from "./jogador.service";
 import { Jogador } from '../model/jogador';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-jogador',
@@ -9,13 +10,21 @@ import { Jogador } from '../model/jogador';
   styleUrls: ['./jogador.component.css']
 })
 export class JogadorComponent implements OnInit {
+  jog1Selecionado: boolean;
+  jog2Selecionado: boolean;
 
-  constructor(private service: JogadorService) { 
-    this.service = service;
+  constructor(private service: JogadorService, private toastr: ToastrService) { 
+    this.service  = service;
+    this.toastr   = toastr;
   }
 
   ngOnInit() {
+    this.jog1Selecionado = false;
+    this.jog2Selecionado = false;
+  }
 
+  toastrError(msg: string) {
+    this.toastr.error(msg, "Erro");
   }
 
   buscarPersonagem(personagem: string, tipo: number) {
@@ -27,6 +36,11 @@ export class JogadorComponent implements OnInit {
         let result = dados["results"]
         
         this.service.jogadores = result;
+        
+        if (this.service.jogadores.length === 0) {
+          this.toastrError("Personagem não encontrado, favor buscar outro.");
+          return;
+        }
 
         if (tipo == 1) {
           for (let primJog of this.service.jogadores) {
@@ -34,15 +48,17 @@ export class JogadorComponent implements OnInit {
             this.service.isJog1 = true;
             this.service.jog1.name = this.service.jogador1.name;
             this.service.jog1.thumbnail = this.service.jogador1.thumbnail;
+            this.jog1Selecionado = true;
           }
         }
-
+        
         if (tipo == 2) {
           for (let segJog of this.service.jogadores) {
             this.service.jogador2 = segJog;
             this.service.isJog2 = true;
             this.service.jog2.name = this.service.jogador2.name;
             this.service.jog2.thumbnail = this.service.jogador2.thumbnail;
+            this.jog2Selecionado = true;
           }
         }
 
@@ -58,6 +74,7 @@ export class JogadorComponent implements OnInit {
           }
           
           this.setJogadorX(this.service.jogadorX);
+          this.setJogadorO(this.service.jogadorO);
         }
     });
   }

@@ -8,7 +8,7 @@ import { JogoService } from "./jogo/jogo.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Jogo da Velha';
+  title = "Jogo da Velha";
 
   constructor(public jService: JogadorService, public jogoService: JogoService) {
 
