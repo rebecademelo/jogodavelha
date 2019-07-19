@@ -16,10 +16,10 @@ export class JogoService {
   constructor() { }
 
   iniciarJogo() {
-    this.tabuleiro  = [3];
-    this.numJogadas = 0;
-    this.vitoria    = false;
-    this.mostraFim  = false;
+    this.tabuleiro        = [3];
+    this.numJogadas       = 0;
+    this.vitoria          = false;
+    this.mostraFim        = false;
 
     for (let i = 0; i < 3; i++) {
       this.tabuleiro[i] = [0, 0, 0];
@@ -32,7 +32,12 @@ export class JogoService {
   }
 
   jogar(linha: number, coluna: number) {
-    
+    if(this.tabuleiro[linha][coluna] !== 0) {
+      console.log("celula já preenchida");
+      //mostrar mensagem que usuario precisa selecionar uma celula vazia
+      return;
+    }
+
     this.numJogadas++;
     console.log(this.numJogadas);
 
@@ -41,12 +46,6 @@ export class JogoService {
       this.jogador = 2;
     } else { // jogador X
       this.jogador = 1;
-    }
-
-    if(this.tabuleiro[linha][coluna] !== 0) {
-      console.log("celula já preenchida");
-      //mostrar mensagem que usuario precisa selecionar uma celula vazia
-      return;
     }
 
     this.tabuleiro[linha][coluna] = this.jogador;
@@ -72,6 +71,7 @@ export class JogoService {
     }
     //deu velha
     if (!this.vitoria && this.numJogadas === 9) {
+      this.jogador = 0;
       console.log('Deu velha');
       this.mostraFim = true;
     }
@@ -121,5 +121,17 @@ export class JogoService {
 
   mostrarFinalizacao() {
     return this.mostraFim;
+  }
+
+  mostrarGanhador(): number {
+    return this.jogador;
+  }
+
+  getPlacarJogX() {
+    return this.placarJogX;
+  }
+
+  getPlacarJogO() {
+    return this.placarJogO;
   }
 }

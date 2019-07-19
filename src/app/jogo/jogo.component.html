@@ -1,53 +1,99 @@
-<button type="button" (click)="buscarPersonagem()">Buscar</button>
+<div class="bg">
+  <div class="ui container center aligned">
+    <button type="button" class="ui black button" (click)="iniciarJogo()" href="#tabuleiro">Iniciar Jogo</button>
+  </div>
 
-<div>
-  <table border="2" style="width: 500px; height: 500px;">
+  <!--<div class="placar" *ngIf="jogoIniciado">
+    <span>{{nomeJogX}}</span>
+    <img style="width: 50px; height: 50px;" src="{{thumbnailJogX}}" />
+    <span>{{placarJogX}}</span>
+    <span> X </span>
+    <span>{{placarJogO}}</span>
+    <img style="width: 50px; height: 50px;" src="{{thumbnailJogO}}" />
+    <span>{{nomeJogO}}</span>
+  </div>-->
+
+  <div class="ui link cards">
+    <div id="jog1" class="ui container center aligned card jog1">
+      <div class="image">
+        <img src="{{thumbnailJogX}}" />
+      </div>
+      <div class="content">
+        <span class="header">{{nomeJogX}}</span>
+        <div class="meta">
+          <span>Jogador X</span>
+        </div>
+      </div>
+      <div class="extra content">
+        <span>Quantidade de partidas ganhadas: {{placarJogX}}</span>
+      </div>
+    </div>
+
+    <div id="jog2" class="ui container center aligned card jog2">
+      <div class="image">
+        <img src="{{thumbnailJogO}}" />
+      </div>
+      <div class="content">
+        <span class="header">{{nomeJogO}}</span>
+        <div class="meta">
+          <span>Jogador O</span>
+        </div>
+      </div>
+      <div class="extra content">
+        <span>Quantidade de partidas ganhadas: {{placarJogO}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="tabuleiro">
+  <table class="tabuleiro">
     <tr>
-      <td [ngClass]="{ 
+      <td class="celula1" [ngClass]="{ 
           'img-X': mostrarX(0,0), 
           'img-O': mostrarO(0,0), 
           'disabled': mostrarFinalizacao()
         }" (click)="jogar(0,0)"></td>
-      <td [ngClass]="{ 
+      <td class="celula2" [ngClass]="{ 
           'img-X': mostrarX(0,1), 
           'img-O': mostrarO(0,1), 
           'disabled': mostrarFinalizacao()
         }" (click)="jogar(0,1)"></td>
-      <td [ngClass]="{ 
+      <td class="celula3" [ngClass]="{ 
           'img-X': mostrarX(0,2), 
           'img-O': mostrarO(0,2), 
           'disabled': mostrarFinalizacao()
         }" (click)="jogar(0,2)"></td>
     </tr>
     <tr>
-      <td [ngClass]="{ 
+      <td class="celula4" [ngClass]="{ 
           'img-X': mostrarX(1,0), 
           'img-O': mostrarO(1,0), 
           'disabled': mostrarFinalizacao()
         }" (click)="jogar(1,0)" ></td>
-      <td [ngClass]="{ 
+      <td class="celula5" [ngClass]="{ 
           'img-X': mostrarX(1,1), 
           'img-O': mostrarO(1,1), 
           'disabled': mostrarFinalizacao()
         }" (click)="jogar(1,1)"></td>
-      <td [ngClass]="{ 
+      <td class="celula6" [ngClass]="{ 
           'img-X': mostrarX(1,2), 
           'img-O': mostrarO(1,2), 
           'disabled': mostrarFinalizacao()
         }" (click)="jogar(1,2)"></td>
     </tr>
     <tr>
-      <td [ngClass]="{ 
+      <td class="celula7" [ngClass]="{ 
           'img-X': mostrarX(2,0), 
           'img-O': mostrarO(2,0), 
           'disabled': mostrarFinalizacao()
         }" (click)="jogar(2,0)"></td>
-      <td [ngClass]="{ 
+      <td class="celula8" [ngClass]="{ 
           'img-X': mostrarX(2,1), 
           'img-O': mostrarO(2,1), 
           'disabled': mostrarFinalizacao()
         }" (click)="jogar(2,1)"></td>
-      <td [ngClass]="{ 
+      <td class="celula9" [ngClass]="{ 
           'img-X': mostrarX(2,2), 
           'img-O': mostrarO(2,2), 
           'disabled': mostrarFinalizacao()
@@ -56,4 +102,14 @@
   </table>
 </div>
 
-<button type="button" (click)="novoJogo()">Novo Jogo</button>
+<div *ngIf="mostrarFinalizacao()">
+  <span>
+    <p *ngIf="mostrarGanhador()===1">{{jogadorService.jogX.name}} ganhou.</p>
+    <p *ngIf="mostrarGanhador()===2">{{jogadorService.jogO.name}} ganhou.</p>
+    <p *ngIf="mostrarGanhador()===0">O jogo deu velha.</p>
+    <br />
+    
+    <button type="button" (click)="novoJogo()">Novo Jogo</button>
+  </span>
+</div>
+

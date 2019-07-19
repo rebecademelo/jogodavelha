@@ -1,3 +1,14 @@
+@import "../../assets/Semantic-UI-CSS-master/semantic.css";
+@import url(https://fonts.googleapis.com/css?family=Marvel);
+
+button {
+    font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+}
+
+.bg {
+    background-color: #ed1d24;
+}
+
 .img-X {
     width: 33%;
     margin: 0;
@@ -20,4 +31,107 @@
     cursor: not-allowed;
     opacity: 0.6;
     pointer-events: none;
+}
+
+.placar {
+    text-align: center;
+}
+
+.tabuleiro {
+    margin: 0 auto;
+    margin-top: 25px;
+    align-content: center;
+    width: 500px; 
+    height: 500px;
+}
+
+.celula1 {
+    width: 33%;
+    border-right: 3px solid;
+    border-bottom: 3px solid;
+}
+
+.celula2 {
+    width: 33%;
+    border-bottom: 3px solid;
+    border-right: 3px solid;
+}
+
+.celula3 {
+    width: 33px;
+    border-bottom: 3px solid;
+}
+
+.celula4 {
+    width: 33px;
+    border-right: 3px solid;
+    border-bottom: 3px solid;
+}
+
+.celula5 {
+    width: 33px;
+    border-bottom: 3px solid;
+    border-right: 3px solid;
+}
+
+.celula6 {
+    width: 33px;
+    border-bottom: 3px solid;
+}
+
+.celula7 {
+    width: 33px;
+    border-right: 3px solid;
+}
+
+.celula8 {
+    width: 33px;
+    border-right: 3px solid;
+}
+
+.celula9 {
+    width: 33px;
+}
+
+@media (min-width: 1200px) {
+    #jog1.jog1 {
+        margin-top: 50px !important;
+        margin-left: 375px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+    
+    #jog2.jog2 {
+        margin-top: 50px !important;
+        margin-right: 375px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    #jog1.jog1 {
+        margin-top: 50px !important;
+        margin-left: 100px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+    
+    #jog2.jog2 {
+        margin-top: 50px !important;
+        margin-right: 90px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+}
+
+@media (max-width: 767px) {
+    #jog1.jog1 {
+        margin-top: 50px !important;
+        margin-left: 95px !important;
+        margin-right: 65px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+    
+    #jog2.jog2 {
+        margin-top: 50px !important;
+        margin-right: 100px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
 }
