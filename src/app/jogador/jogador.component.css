@@ -6,10 +6,18 @@ h2, input {
 }
 
 button:hover{
-    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-name: colorChange; /* Safari 4.0 - 8.0 */
     -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
-    animation-name: example;
+    animation-name: colorChange;
     animation-duration: 4s;
+}
+
+.fields {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .header {
@@ -25,13 +33,73 @@ button:hover{
     width: 215px;
 }
 
-/* Standard syntax */
-@keyframes example {
-    from {background-color: red;}
-    to {background-color: yellow;}
+@keyframes colorChange {
+    from { background-color: red; }
+    to { background-color: rgb(172, 26, 164); }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 358px) and (max-width: 410px) {
+    h2 {
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+}
+
+@media (max-width: 675px) {
+    .fields {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .jog1 {
+        align-content: center;
+        margin-bottom: 30px;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+
+    .jog2 {
+        align-content: center;
+        margin-bottom: 15px;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+}
+
+@media (min-width: 676px) and (max-width: 767px) {
+    .jog1 {
+        align-content: center;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+
+    .jog2 {
+        align-content: center;
+        margin-left: 5px;
+        margin-bottom: 5px;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .jog1 {
+        align-content: center;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+
+    .jog2 {
+        align-content: center;
+        margin-left: 5px;
+        margin-bottom: 5px;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+}
+
+@media (min-width: 1024px) {
     .jog1 {
         align-content: center;
         margin-right: 15px;
@@ -43,38 +111,6 @@ button:hover{
         align-content: center;
         margin-left: 15px;
         margin-bottom: 15px;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 979px) {
-    .jog1 {
-        align-content: center;
-        margin-right: 5px;
-        margin-bottom: 5px;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
-    }
-
-    .jog2 {
-        align-content: center;
-        margin-left: 5px;
-        margin-bottom: 5px;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
-    }
-}
-
-@media (max-width: 767px) {
-    .jog1 {
-        align-content: center;
-        margin-right: 5px;
-        margin-bottom: 5px;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
-    }
-
-    .jog2 {
-        align-content: center;
-        margin-left: 5px;
-        margin-bottom: 5px;
         font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
 }

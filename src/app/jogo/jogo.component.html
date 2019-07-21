@@ -3,17 +3,7 @@
     <button type="button" class="ui black button" (click)="iniciarJogo()" href="#tabuleiro">Iniciar Jogo</button>
   </div>
 
-  <!--<div class="placar" *ngIf="jogoIniciado">
-    <span>{{nomeJogX}}</span>
-    <img style="width: 50px; height: 50px;" src="{{thumbnailJogX}}" />
-    <span>{{placarJogX}}</span>
-    <span> X </span>
-    <span>{{placarJogO}}</span>
-    <img style="width: 50px; height: 50px;" src="{{thumbnailJogO}}" />
-    <span>{{nomeJogO}}</span>
-  </div>-->
-
-  <div class="ui link cards">
+  <div class="ui link container center cards players">
     <div id="jog1" class="ui container center aligned card jog1">
       <div class="image">
         <img src="{{thumbnailJogX}}" />
@@ -104,12 +94,9 @@
 
 <div *ngIf="mostrarFinalizacao()">
   <span>
-    <p *ngIf="mostrarGanhador()===1">{{jogadorService.jogX.name}} ganhou.</p>
-    <p *ngIf="mostrarGanhador()===2">{{jogadorService.jogO.name}} ganhou.</p>
-    <p *ngIf="mostrarGanhador()===0">O jogo deu velha.</p>
-    <br />
-    
-    <button type="button" (click)="novoJogo()">Novo Jogo</button>
+    <div class="ui container center aligned novoJogo">
+      <button type="button" class="ui black button" (click)="novoJogo()">Novo Jogo</button>
+    </div>
   </span>
 </div>
 

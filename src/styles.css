@@ -1,2 +1,4 @@
 @import "../src/assets/Normalize/normalize.css";
 @import url(https://fonts.googleapis.com/css?family=Marvel);
+
+body { margin: 0; }

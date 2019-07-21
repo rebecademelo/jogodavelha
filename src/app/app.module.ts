@@ -9,6 +9,7 @@ import { JogadorService } from "./jogador/jogador.service";
 import { JogadorModule } from "./jogador/jogador.module";
 import { JogoService } from "./jogo/jogo.service";
 import { JogoModule } from "./jogo/jogo.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { JogoModule } from "./jogo/jogo.module";
     HttpModule,
     FormsModule,
     JogadorModule,
-    JogoModule
+    JogoModule,
+    BrowserAnimationsModule
   ],
   providers: [JogadorService, JogoService],
   bootstrap: [AppComponent]

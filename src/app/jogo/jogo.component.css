@@ -5,15 +5,35 @@ button {
     font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
 }
 
+button:hover{
+    -webkit-animation-name: startColor; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: startColor;
+    animation-duration: 4s;
+}
+
+@keyframes startColor {
+    from { background-color: red; }
+    to { background-color: rgb(70, 8, 99); }
+}
+
 .bg {
     background-color: #ed1d24;
+}
+
+.players {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .img-X {
     width: 33%;
     margin: 0;
     padding: 0;
-    background-image: url('../../assets/imagens/X.png');
+    background-image: url('../../assets/imagens/X@1.png');
     background-repeat: no-repeat;
     background-position: center; 
 }
@@ -22,7 +42,7 @@ button {
     width: 33%;
     margin: 0;
     padding: 0;
-    background-image: url('../../assets/imagens/O.png');
+    background-image: url('../../assets/imagens/O@1.png');
     background-repeat: no-repeat;
     background-position: center; 
 }
@@ -31,10 +51,6 @@ button {
     cursor: not-allowed;
     opacity: 0.6;
     pointer-events: none;
-}
-
-.placar {
-    text-align: center;
 }
 
 .tabuleiro {
@@ -93,45 +109,297 @@ button {
     width: 33px;
 }
 
-@media (min-width: 1200px) {
+.novoJogo {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 353px) {
+    #jog1.jog1 {
+        max-width: 100% !important;
+        width: 290px !important;
+        margin-top: 50px !important;
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+    
+    #jog2.jog2 {
+        max-width: 100% !important;
+        width: 290px !important;
+        margin-top: 30px !important;
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+    
+    .tabuleiro {
+        margin: 50px auto 15px auto;
+        align-content: center;
+        width: 285px;
+        height: 285px;
+    }
+
+    .img-X {
+        width: 33%;
+        margin: 0;
+        padding: 0;
+        background-image: url('../../assets/imagens/X@3.png');
+        background-repeat: no-repeat;
+        background-position: center; 
+    }
+    
+    .img-O {
+        width: 33%;
+        margin: 0;
+        padding: 0;
+        background-image: url('../../assets/imagens/O@3.png');
+        background-repeat: no-repeat;
+        background-position: center; 
+    }
+}
+
+@media (min-width: 354px) and (max-width: 627px) {
+    #jog1.jog1 {
+        max-width: 100% !important;
+        width: 290px !important;
+        margin-top: 50px !important;
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+    
+    #jog2.jog2 {
+        max-width: 100% !important;
+        width: 290px !important;
+        margin-top: 30px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+
+    @media (max-width: 349px) {
+        .tabuleiro {
+            margin: 50px auto 15px auto;
+            align-content: center;
+            width: 285px;
+            height: 285px;
+        }
+
+        .img-X {
+            width: 33%;
+            margin: 0;
+            padding: 0;
+            background-image: url('../../assets/imagens/X@3.png');
+            background-repeat: no-repeat;
+            background-position: center; 
+        }
+        
+        .img-O {
+            width: 33%;
+            margin: 0;
+            padding: 0;
+            background-image: url('../../assets/imagens/O@3.png');
+            background-repeat: no-repeat;
+            background-position: center; 
+        }
+    }
+
+    @media (min-width: 354px) and (max-width: 399px) {
+        .tabuleiro {
+            margin: 50px auto 15px auto;
+            align-content: center;
+            width: 300px;
+            height: 300px;
+        }
+
+        .img-X {
+            width: 33%;
+            margin: 0;
+            padding: 0;
+            background-image: url('../../assets/imagens/X@3.png');
+            background-repeat: no-repeat;
+            background-position: center; 
+        }
+        
+        .img-O {
+            width: 33%;
+            margin: 0;
+            padding: 0;
+            background-image: url('../../assets/imagens/O@3.png');
+            background-repeat: no-repeat;
+            background-position: center; 
+        }
+    }
+    
+    @media (min-width: 400px) and (max-width: 469px) {
+        .tabuleiro {
+            margin: 50px auto 15px auto;
+            align-content: center;
+            width: 350px;
+            height: 350px;
+        }
+
+        .img-X {
+            width: 33%;
+            margin: 0;
+            padding: 0;
+            background-image: url('../../assets/imagens/X@2.png');
+            background-repeat: no-repeat;
+            background-position: center; 
+        }
+        
+        .img-O {
+            width: 33%;
+            margin: 0;
+            padding: 0;
+            background-image: url('../../assets/imagens/O@2.png');
+            background-repeat: no-repeat;
+            background-position: center; 
+        }
+    }
+
+    @media (min-width: 470px) and (max-width: 627px) {
+        .tabuleiro {
+            margin: 50px auto 15px auto;
+            align-content: center;
+            width: 400px;
+            height: 400px;
+        }
+
+        .img-X {
+            width: 33%;
+            margin: 0;
+            padding: 0;
+            background-image: url('../../assets/imagens/X@2.png');
+            background-repeat: no-repeat;
+            background-position: center; 
+        }
+        
+        .img-O {
+            width: 33%;
+            margin: 0;
+            padding: 0;
+            background-image: url('../../assets/imagens/O@2.png');
+            background-repeat: no-repeat;
+            background-position: center; 
+        }
+    }
+}
+
+@media (min-width: 628px) and (max-width: 675px) {
+    #jog1.jog1 {
+        max-width: 100% !important;
+        width: 290px !important;
+        margin-top: 50px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+    
+    #jog2.jog2 {
+        max-width: 100% !important;
+        width: 290px !important;
+        margin-top: 50px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+}
+
+@media (min-width: 676px) and (max-width: 767px) {
+    #jog1.jog1 {
+        max-width: 100% !important;
+        display: flex !important;
+        width: 290px !important;
+        margin-top: 50px !important;
+        margin-right: 0px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+    
+    #jog2.jog2 {
+        max-width: 100% !important;
+        display: flex !important;
+        width: 290px !important;
+        margin-top: 50px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+}
+
+@media (min-width: 768px) {
     #jog1.jog1 {
         margin-top: 50px !important;
-        margin-left: 375px !important;
+        margin-left: 65px !important;
         font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
     
     #jog2.jog2 {
         margin-top: 50px !important;
-        margin-right: 375px !important;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 979px) {
-    #jog1.jog1 {
-        margin-top: 50px !important;
-        margin-left: 100px !important;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
-    }
-    
-    #jog2.jog2 {
-        margin-top: 50px !important;
-        margin-right: 90px !important;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
-    }
-}
-
-@media (max-width: 767px) {
-    #jog1.jog1 {
-        margin-top: 50px !important;
-        margin-left: 95px !important;
         margin-right: 65px !important;
         font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
+}
+
+@media (min-width: 992px) {
+    #jog1.jog1 {
+        margin-top: 50px !important;
+        margin-left: 170px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
     
     #jog2.jog2 {
         margin-top: 50px !important;
-        margin-right: 100px !important;
+        margin-right: 170px !important;
         font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    #jog1.jog1 {
+        margin-top: 50px !important;
+        margin-left: 160px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+    
+    #jog2.jog2 {
+        margin-top: 50px !important;
+        margin-right: 160px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+
+    .tabuleiro {
+        margin: 30px auto 15px auto;
+        align-content: center;
+        width: 580px;
+        height: 580px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #jog1.jog1 {
+        margin-top: 50px !important;
+        margin-left: 255px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+    
+    #jog2.jog2 {
+        margin-top: 50px !important;
+        margin-right: 255px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+}
+
+@media (min-width: 1440px) {
+    #jog1.jog1 {
+        margin-top: 50px !important;
+        margin-left: 255px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+    
+    #jog2.jog2 {
+        margin-top: 50px !important;
+        margin-right: 255px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+
+    .tabuleiro {
+        margin: 50px auto 15px auto;
+        align-content: center;
+        width: 600px;
+        height: 600px;
     }
 }

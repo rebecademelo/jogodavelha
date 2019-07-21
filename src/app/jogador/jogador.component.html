@@ -1,38 +1,19 @@
 <div class="header">
   <h2>Escolha os personagens para começar a jogar</h2>
-  <div class="ui action input jog1">
-    <input type="text" class="jogador" placeholder="Escolha o primeiro jogador..." name="firstCharacter" [(ngModel)]="firstCharacter">
-    <button type="button" class="ui icon button btn-buscar" (click)="buscarPersonagem(firstCharacter, 1)">
-      <i class="inverted search icon"></i>
-    </button>
-  </div>
+  <div class="fields">
+    <div class="ui action input jog1">
+      <input type="text" class="jogador" placeholder="Escolha o primeiro jogador..." name="firstCharacter" [(ngModel)]="firstCharacter">
+      <button type="button" class="ui icon button btn-buscar" (click)="buscarPersonagem(firstCharacter, 1)">
+        <i class="inverted search icon"></i>
+      </button>
+    </div>
   
-  <div class="ui action input jog2">
-    <input type="text" class="jogador" placeholder="Escolha o segundo jogador..." name="secondCharacter" [(ngModel)]="secondCharacter"/>
-    <button type="button" class="ui icon button btn-buscar" (click)="buscarPersonagem(secondCharacter, 2)">
-      <i class="inverted search icon"></i>
-    </button>
+    <div class="ui action input jog2">
+      <input type="text" class="jogador" placeholder="Escolha o segundo jogador..." name="secondCharacter" [(ngModel)]="secondCharacter"/>
+      <button type="button" class="ui icon button btn-buscar" (click)="buscarPersonagem(secondCharacter, 2)">
+        <i class="inverted search icon"></i>
+      </button>
+    </div>
   </div>
-  <!--<span>{{service.jog1.name}}</span>
-  <img *ngIf="jog1Selecionado" style="width: 50px; height: 50px;" src="{{service.jog1.thumbnail.path}}.{{service.jog1.thumbnail.extension}}">
-  <span>{{service.jog2.name}}</span>
-  <img *ngIf="jog2Selecionado" style="width: 50px; height: 50px;" src="{{service.jog2.thumbnail.path}}.{{service.jog2.thumbnail.extension}}">
-  -->
 </div>
 <br/>
-<!--
-<table>
-  <tr>
-    <td>{{service.jog1.name}}</td>
-    <td>
-      <img style="width: 50px; height: 50px;" src="{{service.jog1.thumbnail.path}}.{{service.jog1.thumbnail.extension}}">
-    </td>
-  </tr>
-  <tr>
-    <td>{{service.jog2.name}}</td>
-    <td>
-      <img style="width: 50px; height: 50px;" src="{{service.jog2.thumbnail.path}}.{{service.jog2.thumbnail.extension}}">
-    </td>
-  </tr>
-</table>
--->
