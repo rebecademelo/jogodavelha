@@ -11,7 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
-  declarations: [JogadorComponent],
+  declarations: [ JogadorComponent ],
   imports: [
     CommonModule,
     FormsModule,
@@ -22,6 +22,6 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     MatInputModule
   ],
-  exports: [JogadorComponent]
+  exports: [ JogadorComponent ]
 })
 export class JogadorModule { }

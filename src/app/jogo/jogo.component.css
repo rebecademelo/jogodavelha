@@ -3,6 +3,7 @@
 
 button {
     font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    margin-bottom: 25px !important;
 }
 
 button:hover{
@@ -27,6 +28,11 @@ button:hover{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+.playerText {
+    color: black;
+    font-weight: bold !important;
 }
 
 .img-X {
@@ -61,52 +67,21 @@ button:hover{
     height: 500px;
 }
 
-.celula1 {
+.celula {
     width: 33%;
+}
+
+.celula1, .celula2, .celula4, .celula5 {
     border-right: 3px solid;
     border-bottom: 3px solid;
 }
 
-.celula2 {
-    width: 33%;
-    border-bottom: 3px solid;
-    border-right: 3px solid;
-}
-
-.celula3 {
-    width: 33px;
+.celula3, .celula6 {
     border-bottom: 3px solid;
 }
 
-.celula4 {
-    width: 33px;
+.celula7, .celula8 {
     border-right: 3px solid;
-    border-bottom: 3px solid;
-}
-
-.celula5 {
-    width: 33px;
-    border-bottom: 3px solid;
-    border-right: 3px solid;
-}
-
-.celula6 {
-    width: 33px;
-    border-bottom: 3px solid;
-}
-
-.celula7 {
-    width: 33px;
-    border-right: 3px solid;
-}
-
-.celula8 {
-    width: 33px;
-    border-right: 3px solid;
-}
-
-.celula9 {
-    width: 33px;
 }
 
 .novoJogo {
@@ -115,22 +90,21 @@ button:hover{
 }
 
 @media (max-width: 353px) {
-    #jog1.jog1 {
+    #player.player {
         max-width: 100% !important;
         width: 290px !important;
-        margin-top: 50px !important;
         margin-right: 0px !important;
         margin-left: 0px !important;
         font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
+
+    .jog1 {
+        margin-top: 25px !important;
+    }
     
-    #jog2.jog2 {
-        max-width: 100% !important;
-        width: 290px !important;
+    .jog2 {
         margin-top: 30px !important;
-        margin-right: 0px !important;
-        margin-left: 0px !important;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+        margin-bottom: 35px !important;
     }
     
     .tabuleiro {
@@ -160,20 +134,21 @@ button:hover{
 }
 
 @media (min-width: 354px) and (max-width: 627px) {
-    #jog1.jog1 {
+    #player.player {
         max-width: 100% !important;
         width: 290px !important;
-        margin-top: 50px !important;
-        margin-right: 0px !important;
-        margin-left: 0px !important;
         font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
     
-    #jog2.jog2 {
-        max-width: 100% !important;
-        width: 290px !important;
+    #player.jog1 {
+        margin-top: 25px !important;
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+    }
+    
+    #player.jog2 {
         margin-top: 30px !important;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+        margin-bottom: 35px !important;
     }
 
     @media (max-width: 349px) {
@@ -286,79 +261,75 @@ button:hover{
 }
 
 @media (min-width: 628px) and (max-width: 675px) {
-    #jog1.jog1 {
+    #player.player {
         max-width: 100% !important;
         width: 290px !important;
-        margin-top: 50px !important;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
-    }
-    
-    #jog2.jog2 {
-        max-width: 100% !important;
-        width: 290px !important;
-        margin-top: 50px !important;
+        margin-top: 25px !important;
+        margin-bottom: 35px !important;
         font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
 }
 
 @media (min-width: 676px) and (max-width: 767px) {
-    #jog1.jog1 {
+    #player.player {
         max-width: 100% !important;
         display: flex !important;
         width: 290px !important;
-        margin-top: 50px !important;
-        margin-right: 0px !important;
+        margin-top: 25px !important;
+        margin-bottom: 35px !important;
         font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
-    
-    #jog2.jog2 {
-        max-width: 100% !important;
-        display: flex !important;
-        width: 290px !important;
-        margin-top: 50px !important;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+
+    #player.jog1 {
+        margin-right: 0px !important;
     }
 }
 
 @media (min-width: 768px) {
-    #jog1.jog1 {
-        margin-top: 50px !important;
-        margin-left: 65px !important;
+    #player.player {
+        margin-top: 25px !important;
+        margin-bottom: 35px !important;
         font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
+
+    #player.jog1 {
+        margin-left: 65px !important;
+    }
     
-    #jog2.jog2 {
-        margin-top: 50px !important;
+    #player.jog2 {
         margin-right: 65px !important;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
 }
 
 @media (min-width: 992px) {
-    #jog1.jog1 {
-        margin-top: 50px !important;
-        margin-left: 170px !important;
+    #player.player {
+        margin-top: 25px !important;
+        margin-bottom: 35px !important;
         font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
+
+    #player.jog1 {
+        margin-left: 170px !important;
+    }
     
-    #jog2.jog2 {
-        margin-top: 50px !important;
+    #player.jog2 {
         margin-right: 170px !important;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
 }
 
 @media (min-width: 1024px) {
-    #jog1.jog1 {
-        margin-top: 50px !important;
-        margin-left: 160px !important;
+    #player.player {
+        margin-top: 25px !important;
+        margin-bottom: 35px !important;
         font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
+
+    #player.jog1 {
+        margin-left: 160px !important;
+    }
     
-    #jog2.jog2 {
-        margin-top: 50px !important;
+    #player.jog2 {
         margin-right: 160px !important;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
 
     .tabuleiro {
@@ -370,30 +341,18 @@ button:hover{
 }
 
 @media (min-width: 1200px) {
-    #jog1.jog1 {
-        margin-top: 50px !important;
-        margin-left: 255px !important;
+    #player.player {
+        margin-top: 25px !important;
+        margin-bottom: 35px !important;
         font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
     
-    #jog2.jog2 {
-        margin-top: 50px !important;
-        margin-right: 255px !important;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
-    }
-}
-
-@media (min-width: 1440px) {
-    #jog1.jog1 {
-        margin-top: 50px !important;
+    #player.jog1 {
         margin-left: 255px !important;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
     
-    #jog2.jog2 {
-        margin-top: 50px !important;
+    #player.jog2 {
         margin-right: 255px !important;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
 
     .tabuleiro {

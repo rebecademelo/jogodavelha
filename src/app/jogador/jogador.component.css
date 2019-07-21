@@ -12,15 +12,24 @@ button:hover{
     animation-duration: 4s;
 }
 
-.fields {
+.players {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin-top: 20px !important;
 }
 
-.header {
+.player {
+    max-width: 100% !important;
+    display: flex !important;
+    width: 290px !important;
+    margin-top: 10px !important;
+    font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+}
+
+.jogadorHeader {
     background-color: #ed1d24;
     color: #fff;
 }
@@ -31,6 +40,24 @@ button:hover{
 
 .jogador {
     width: 215px;
+}
+
+/*@media (min-width: 676px) and (max-width: 767px) {
+    .player {
+        max-width: 100% !important;
+        display: flex !important;
+        width: 290px !important;
+        margin-top: 50px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+    }
+
+    #jog1.jog1 {
+        margin-right: 5px !important;   
+    }
+}*/
+
+.imgCard {
+    width: 300px !important;
 }
 
 @keyframes colorChange {
@@ -46,7 +73,7 @@ button:hover{
 }
 
 @media (max-width: 675px) {
-    .fields {
+    .players {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
@@ -54,63 +81,98 @@ button:hover{
         align-items: center;
     }
 
-    .jog1 {
+    .field, .playerCard {
         align-content: center;
-        margin-bottom: 30px;
         font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
 
+    .jog1, #card1.card1 {
+        margin-bottom: 30px !important;
+    }
+
     .jog2 {
-        align-content: center;
-        margin-bottom: 15px;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+        margin-bottom: 15px !important;
+    }
+
+    #card2.card2 {
+        margin-bottom: 50px;
     }
 }
 
 @media (min-width: 676px) and (max-width: 767px) {
-    .jog1 {
+    .field {
         align-content: center;
-        margin-right: 5px;
-        margin-bottom: 5px;
+        margin-bottom: 5px !important;
         font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
 
+    .jog1 {
+        margin-right: 5px !important;
+    }
+
     .jog2 {
+        margin-left: 5px !important;
+    }
+
+    .playerCard {
         align-content: center;
+        margin-bottom: 35px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important; 
+    }
+
+    #card2.card2 {
         margin-left: 5px;
-        margin-bottom: 5px;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
 }
 
 @media (min-width: 768px) {
-    .jog1 {
+    .field {
         align-content: center;
-        margin-right: 5px;
-        margin-bottom: 5px;
+        margin-bottom: 5px !important;
         font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
 
+    .jog1 {
+        margin-right: 5px !important;
+    }
+
     .jog2 {
+        margin-left: 5px !important;
+    }
+
+    .playerCard {
         align-content: center;
-        margin-left: 5px;
-        margin-bottom: 5px;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+        margin-bottom: 35px !important;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important; 
     }
 }
 
 @media (min-width: 1024px) {
-    .jog1 {
+    .field {
         align-content: center;
-        margin-right: 15px;
-        margin-bottom: 15px;
+        margin-bottom: 15px !important;
         font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
 
+    .jog1 {
+        margin-right: 15px !important;
+    }
+
     .jog2 {
+        margin-left: 15px !important;
+    }
+
+    .playerCard {
         align-content: center;
+        margin-bottom: 35px;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif !important; 
+    }
+
+    #card1.card1 {
+        margin-right: 20px;
+    }
+
+    #card2.card2 {
         margin-left: 15px;
-        margin-bottom: 15px;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
 }

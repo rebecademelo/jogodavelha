@@ -37,12 +37,16 @@ export class JogoComponent implements OnInit {
     this.jogoIniciado = false;
   }
 
-  toastrSucess(msg: string) {
-    this.toastr.success(msg, "Vitória");
+  toastrSucess(msg: string, tipo: string) {
+    this.toastr.success(msg, tipo);
   }
 
-  toastrWarning(msg: string) {
-    this.toastr.warning(msg, "Empate");
+  toastrInfo(msg: string, tipo: string){
+    this.toastr.info(msg, tipo)
+  }
+
+  toastrWarning(msg: string, tipo: string) {
+    this.toastr.warning(msg, tipo);
   }
 
   jogar(linha: number, coluna: number) {
@@ -55,20 +59,19 @@ export class JogoComponent implements OnInit {
 
     fim       = this.jogoService.mostrarFinalizacao();
     ganhador  = this.jogoService.mostrarGanhador();
-    console.log(fim);
-    console.log(ganhador);
+    
     if (fim) {
       switch(ganhador) {
         case ganhador = 1: {
-          this.toastrSucess("Jogador X: " + this.jogadorService.jogX.name + " ganhou!");
+          this.toastrSucess("Jogador X: " + this.jogadorService.jogX.name + " ganhou!", "Vitória");
           break;
         }
         case ganhador = 2: {
-          this.toastrSucess("Jogador O: " + this.jogadorService.jogO.name + " ganhou!");
+          this.toastrSucess("Jogador O: " + this.jogadorService.jogO.name + " ganhou!", "Vitória");
           break;
         }
         case ganhador = 0: {
-          this.toastrWarning("O jogo deu velha!");
+          this.toastrInfo("A partida deu velha!", "Empate");
           break;
         }
       }
@@ -92,16 +95,20 @@ export class JogoComponent implements OnInit {
   }
 
   iniciarJogo() { // inicia o jogo buscando qual é o jogador que irá ser o primeiro(X)
-    this.jogoIniciado = true;
     this.jogadorX = this.getJogadorX();
     this.jogadorO = this.getJogadorO();
-    this.nomeJogX = this.jogadorX.name;
-    this.nomeJogO = this.jogadorO.name;
-    this.thumbnailJogX = this.jogadorX.thumbnail["path"] + "." + this.jogadorX.thumbnail["extension"];
-    this.thumbnailJogO = this.jogadorO.thumbnail["path"] + "." + this.jogadorO.thumbnail["extension"];
-    console.log("thumbnail");
-    console.log(this.thumbnailJogX);
-    console.log(this.jogadorX);
+    
+    if (this.jogadorX === undefined || this.jogadorO === undefined) {
+      this.toastrWarning("Escolha os jogadores antes de iniciar a partida!", "Aviso");
+    } else {
+      this.jogoIniciado = true;
+
+      this.nomeJogX = this.jogadorX.name;
+      this.thumbnailJogX = this.jogadorX.thumbnail["path"] + "." + this.jogadorX.thumbnail["extension"];
+      
+      this.nomeJogO = this.jogadorO.name;
+      this.thumbnailJogO = this.jogadorO.thumbnail["path"] + "." + this.jogadorO.thumbnail["extension"];
+    }
   }
 
   mostrarFinalizacao() {

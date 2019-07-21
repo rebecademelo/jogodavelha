@@ -43,8 +43,8 @@ export class JogadorComponent implements OnInit {
     return this.characters.filter(character => character.toLowerCase().includes(filterValue));
   }*/
 
-  toastrError(msg: string) {
-    this.toastr.error(msg, "Erro");
+  toastrError(msg: string, tipo: string) {
+    this.toastr.error(msg, tipo);
   }
   /*
   getListaPersonagens(name: string) {
@@ -79,7 +79,7 @@ export class JogadorComponent implements OnInit {
         this.service.jogadores = result;
         
         if (this.service.jogadores.length === 0) {
-          this.toastrError("Personagem não encontrado, favor buscar outro.");
+          this.toastrError("Personagem não encontrado, favor buscar outro.", "Erro");
           return;
         }
 

@@ -24,7 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     JogoModule,
     BrowserAnimationsModule
   ],
-  providers: [JogadorService, JogoService],
-  bootstrap: [AppComponent]
+  providers: [ JogadorService, JogoService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

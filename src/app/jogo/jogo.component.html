@@ -3,87 +3,87 @@
     <button type="button" class="ui black button" (click)="iniciarJogo()" href="#tabuleiro">Iniciar Jogo</button>
   </div>
 
-  <div class="ui link container center cards players">
-    <div id="jog1" class="ui container center aligned card jog1">
+  <div class="ui link container center cards players" *ngIf="jogoIniciado">
+    <div id="player" class="ui container center aligned card player jog1">
       <div class="image">
         <img src="{{thumbnailJogX}}" />
       </div>
       <div class="content">
         <span class="header">{{nomeJogX}}</span>
         <div class="meta">
-          <span>Jogador X</span>
+          <span class="playerText">Jogador X</span>
         </div>
       </div>
       <div class="extra content">
-        <span>Quantidade de partidas ganhadas: {{placarJogX}}</span>
+        <span class="playerText">Quantidade de partidas ganhadas: {{placarJogX}}</span>
       </div>
     </div>
 
-    <div id="jog2" class="ui container center aligned card jog2">
+    <div id="player" class="ui container center aligned card player jog2">
       <div class="image">
         <img src="{{thumbnailJogO}}" />
       </div>
       <div class="content">
         <span class="header">{{nomeJogO}}</span>
         <div class="meta">
-          <span>Jogador O</span>
+          <span class="playerText">Jogador O</span>
         </div>
       </div>
       <div class="extra content">
-        <span>Quantidade de partidas ganhadas: {{placarJogO}}</span>
+        <span class="playerText">Quantidade de partidas ganhadas: {{placarJogO}}</span>
       </div>
     </div>
   </div>
 </div>
 
-<div id="tabuleiro">
+<div id="tabuleiro" *ngIf="jogoIniciado">
   <table class="tabuleiro">
     <tr>
-      <td class="celula1" [ngClass]="{ 
+      <td class="celula celula1" [ngClass]="{ 
           'img-X': mostrarX(0,0), 
           'img-O': mostrarO(0,0), 
           'disabled': mostrarFinalizacao()
         }" (click)="jogar(0,0)"></td>
-      <td class="celula2" [ngClass]="{ 
+      <td class="celula celula2" [ngClass]="{ 
           'img-X': mostrarX(0,1), 
           'img-O': mostrarO(0,1), 
           'disabled': mostrarFinalizacao()
         }" (click)="jogar(0,1)"></td>
-      <td class="celula3" [ngClass]="{ 
+      <td class="celula celula3" [ngClass]="{ 
           'img-X': mostrarX(0,2), 
           'img-O': mostrarO(0,2), 
           'disabled': mostrarFinalizacao()
         }" (click)="jogar(0,2)"></td>
     </tr>
     <tr>
-      <td class="celula4" [ngClass]="{ 
+      <td class="celula celula4" [ngClass]="{ 
           'img-X': mostrarX(1,0), 
           'img-O': mostrarO(1,0), 
           'disabled': mostrarFinalizacao()
         }" (click)="jogar(1,0)" ></td>
-      <td class="celula5" [ngClass]="{ 
+      <td class="celula celula5" [ngClass]="{ 
           'img-X': mostrarX(1,1), 
           'img-O': mostrarO(1,1), 
           'disabled': mostrarFinalizacao()
         }" (click)="jogar(1,1)"></td>
-      <td class="celula6" [ngClass]="{ 
+      <td class="celula celula6" [ngClass]="{ 
           'img-X': mostrarX(1,2), 
           'img-O': mostrarO(1,2), 
           'disabled': mostrarFinalizacao()
         }" (click)="jogar(1,2)"></td>
     </tr>
     <tr>
-      <td class="celula7" [ngClass]="{ 
+      <td class="celula celula7" [ngClass]="{ 
           'img-X': mostrarX(2,0), 
           'img-O': mostrarO(2,0), 
           'disabled': mostrarFinalizacao()
         }" (click)="jogar(2,0)"></td>
-      <td class="celula8" [ngClass]="{ 
+      <td class="celula celula8" [ngClass]="{ 
           'img-X': mostrarX(2,1), 
           'img-O': mostrarO(2,1), 
           'disabled': mostrarFinalizacao()
         }" (click)="jogar(2,1)"></td>
-      <td class="celula9" [ngClass]="{ 
+      <td class="celula" [ngClass]="{ 
           'img-X': mostrarX(2,2), 
           'img-O': mostrarO(2,2), 
           'disabled': mostrarFinalizacao()
