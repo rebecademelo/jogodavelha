@@ -1,22 +1,22 @@
 <div class="jogadorHeader">
   <h2>Escolha os personagens para começar a jogar</h2>
   <div class="players">
-    <div class="ui action input field jog1">
+    <div class="ui action input field jog1" *ngIf="!jogoIniciado()">
       <input type="text" class="jogador" placeholder="Escolha o primeiro jogador..." name="firstCharacter" [(ngModel)]="firstCharacter">
       <button type="button" class="ui icon button btn-buscar" (click)="buscarPersonagem(firstCharacter, 1)">
         <i class="inverted search icon"></i>
       </button>
     </div>
   
-    <div class="ui action input field jog2">
-      <input type="text" class="jogador" placeholder="Escolha o segundo jogador..." name="secondCharacter" [(ngModel)]="secondCharacter"/>
+    <div class="ui action input field jog2" *ngIf="!jogoIniciado()">
+      <input type="text" class="jogador" placeholder="Escolha o segundo jogador..." name="secondCharacter" [(ngModel)]="secondCharacter" />
       <button type="button" class="ui icon button btn-buscar" (click)="buscarPersonagem(secondCharacter, 2)">
         <i class="inverted search icon"></i>
       </button>
     </div>
   </div>
 
-  <div class="ui cards players">
+  <div class="ui cards players" *ngIf="!jogoIniciado()">
       <div id="card1" class="card player playerCard card1" *ngIf="jog1Selecionado">
         <div class="content">
           <img class="right floated mini ui image imgCard" src="{{service.jog1.thumbnail.path}}.{{service.jog1.thumbnail.extension}}">

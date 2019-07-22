@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { JogoService } from "./jogo.service";
 import { JogadorService } from "./../jogador/jogador.service";
 import { Jogador } from '../model/jogador';
 import { ToastrService } from 'ngx-toastr';
+import { DOCUMENT } from "@angular/common";
+import { PageScrollConfig, PageScrollService, PageScrollInstance } from "ngx-page-scroll-core";
 
 @Component({
   selector: 'app-jogo',
@@ -22,11 +24,16 @@ export class JogoComponent implements OnInit {
 
   constructor(private jogoService: JogoService, 
               private jogadorService: JogadorService, 
-              private toastr: ToastrService) { 
+              private toastr: ToastrService,
+              private pageScrollService: PageScrollService,
+              @Inject (DOCUMENT) private document: any) { 
                 
     this.jogoService    = jogoService;
     this.jogadorService = jogadorService;
     this.toastr         = toastr;
+
+    //PageScrollConfig.defaultScrollOffset = 200;
+    //PageScrollConfig.defaultDuration = 250;
    }
 
   ngOnInit() {
@@ -102,13 +109,23 @@ export class JogoComponent implements OnInit {
       this.toastrWarning("Escolha os jogadores antes de iniciar a partida!", "Aviso");
     } else {
       this.jogoIniciado = true;
+      this.setInicioJogo(this.jogoIniciado);
 
       this.nomeJogX = this.jogadorX.name;
       this.thumbnailJogX = this.jogadorX.thumbnail["path"] + "." + this.jogadorX.thumbnail["extension"];
       
       this.nomeJogO = this.jogadorO.name;
       this.thumbnailJogO = this.jogadorO.thumbnail["path"] + "." + this.jogadorO.thumbnail["extension"];
+
+      this.pageScrollService.scroll({
+        document: this.document,
+        scrollTarget: '#tabuleiro'
+      });
     }
+  }
+
+  setInicioJogo(start: boolean) {
+    this.jogoService.setInicioJogo(start);
   }
 
   mostrarFinalizacao() {

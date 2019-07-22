@@ -39,16 +39,4 @@ export class JogadorService {
                + "&name=" + name;
     return this.http.get(url + params).pipe(map((res: Response) => res));
   }
-
-  getListaPersonagens(name) {
-    var timestamp = Number(new Date());
-    var hash = Md5.hashStr(timestamp + '5b11c81d22bf12e95875873f039ce3ad0dab666e' + '331c004ec798621bab61b479f4b36e11');
-
-    let url = 'http://gateway.marvel.com/v1/public/characters';
-    let params = "?apikey=331c004ec798621bab61b479f4b36e11"
-               + "&ts=" + timestamp
-               + "&hash=" + hash
-               + "&nameStartsWith=" + name;
-    return this.http.get(url + params).pipe(map((res: Response) => res));
-  }
 }

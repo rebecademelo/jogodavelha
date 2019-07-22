@@ -12,6 +12,13 @@ button:hover{
     animation-duration: 4s;
 }
 
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+    pointer-events: none;
+    display: none;
+}
+
 .players {
     display: flex;
     flex-direction: row;
@@ -41,20 +48,6 @@ button:hover{
 .jogador {
     width: 215px;
 }
-
-/*@media (min-width: 676px) and (max-width: 767px) {
-    .player {
-        max-width: 100% !important;
-        display: flex !important;
-        width: 290px !important;
-        margin-top: 50px !important;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
-    }
-
-    #jog1.jog1 {
-        margin-right: 5px !important;   
-    }
-}*/
 
 .imgCard {
     width: 300px !important;

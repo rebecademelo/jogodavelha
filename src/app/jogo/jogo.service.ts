@@ -12,6 +12,7 @@ export class JogoService {
   public placarJogO: number;
   public jogador: number;
   public mostraFim: boolean;
+  public inicioJogo: boolean;
 
   constructor() { }
 
@@ -133,5 +134,13 @@ export class JogoService {
 
   getPlacarJogO() {
     return this.placarJogO;
+  }
+
+  setInicioJogo(start: boolean) {
+    this.inicioJogo = start;
+  }
+
+  getInicioJogo() {
+    return this.inicioJogo;
   }
 }

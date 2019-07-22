@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { FormControl } from "@angular/forms";
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { JogoService } from "./../jogo/jogo.service";
 
 @Component({
   selector: 'app-jogador',
@@ -15,58 +16,27 @@ import { map, startWith } from 'rxjs/operators';
 export class JogadorComponent implements OnInit {
   jog1Selecionado: boolean;
   jog2Selecionado: boolean;
+  start: boolean;
 
   formControl = new FormControl();
   characters: string[] = [];
   personagens = new Array<Jogador>();
   filteredCharacters: Observable<string[]>;
 
-  constructor(private service: JogadorService, private toastr: ToastrService) { 
+  constructor(private service: JogadorService, private jogoService: JogoService, private toastr: ToastrService) { 
     this.service  = service;
+    this.jogoService = jogoService;
     this.toastr   = toastr;
   }
 
   ngOnInit() {
     this.jog1Selecionado = false;
     this.jog2Selecionado = false;
-
-    /*
-    this.filteredCharacters = this.formControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this.filtro(value))
-    );*/
   }
-
-  /*private filtro(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.characters.filter(character => character.toLowerCase().includes(filterValue));
-  }*/
 
   toastrError(msg: string, tipo: string) {
     this.toastr.error(msg, tipo);
   }
-  /*
-  getListaPersonagens(name: string) {
-    console.log(name);
-    if (name = "") {
-      this.service.getListaPersonagens(name).subscribe(
-        data => {
-          let res = data as Response;
-          let retorno = res.json();
-          let dados = retorno["data"];
-          let result = dados["results"];
-          
-          this.personagens = result;
-          console.log(this.personagens);
-          for (let jog of this.personagens) {
-            console.log(jog.name);
-            this.characters.push(jog.name);
-          }
-        }
-      )
-    }
-  }*/
 
   buscarPersonagem(personagem: string, tipo: number) {
     this.service.getNomeJogador(personagem).subscribe(
@@ -134,5 +104,9 @@ export class JogadorComponent implements OnInit {
 
   getJogadorO() {
     return this.service.jogO;
+  }
+
+  jogoIniciado() {
+    return this.jogoService.getInicioJogo();
   }
 }
