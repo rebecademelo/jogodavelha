@@ -5,7 +5,6 @@ import { Jogador } from '../model/jogador';
 import { ToastrService } from 'ngx-toastr';
 import { FormControl } from "@angular/forms";
 import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
 import { JogoService } from "./../jogo/jogo.service";
 
 @Component({
@@ -34,11 +33,11 @@ export class JogadorComponent implements OnInit {
     this.jog2Selecionado = false;
   }
 
-  toastrError(msg: string, tipo: string) {
+  toastrError(msg: string, tipo: string): void {
     this.toastr.error(msg, tipo);
   }
 
-  buscarPersonagem(personagem: string, tipo: number) {
+  buscarPersonagem(personagem: string, tipo: number): void {
     this.service.getNomeJogador(personagem).subscribe(
       data => {
         let res = data as Response;
@@ -90,23 +89,23 @@ export class JogadorComponent implements OnInit {
     });
   }
 
-  setJogadorX(jogX: Jogador) {
+  setJogadorX(jogX: Jogador): void {
     this.service.jogX = jogX;
   }
 
-  getJogadorX() {
+  getJogadorX(): Jogador {
     return this.service.jogX;
   }
   
-  setJogadorO(jogO: Jogador) {
+  setJogadorO(jogO: Jogador): void {
     this.service.jogO = jogO;
   }
 
-  getJogadorO() {
+  getJogadorO(): Jogador {
     return this.service.jogO;
   }
 
-  jogoIniciado() {
+  jogoIniciado(): boolean {
     return this.jogoService.getInicioJogo();
   }
 }

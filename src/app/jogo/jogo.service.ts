@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class JogoService {
   public tamanho: number = 3;
-  public tabuleiro;
+  public tabuleiro: any;
   public numJogadas: number;
   public vitoria: boolean;
   public placarJogX: number;
@@ -27,23 +27,20 @@ export class JogoService {
     }
   }
 
-  zerarPlacar() {
+  zerarPlacar(): void {
     this.placarJogX = 0;
     this.placarJogO = 0;
   }
 
-  jogar(linha: number, coluna: number) {
+  jogar(linha: number, coluna: number): void {
     if(this.tabuleiro[linha][coluna] !== 0) {
-      console.log("celula já preenchida");
       //mostrar mensagem que usuario precisa selecionar uma celula vazia
       return;
     }
 
     this.numJogadas++;
-    console.log(this.numJogadas);
 
-    // jogador O
-    if (this.numJogadas % 2 === 0) {
+    if (this.numJogadas % 2 === 0) { // jogador O
       this.jogador = 2;
     } else { // jogador X
       this.jogador = 1;
@@ -53,32 +50,26 @@ export class JogoService {
     this.vitoria = this.finalJogo(linha, coluna, this.jogador, this.tabuleiro);
     
     if (!this.vitoria && this.numJogadas < 9) {
-      console.log('Próxima Jogada');
+      console.log('Próxima Jogada');//
     }
     // vitória
     if (this.vitoria) {
       if (this.jogador === 1) {
         this.placarJogX++;
-        console.log("placar X");
-        console.log(this.placarJogX);
       } else {
         this.placarJogO++;
-        console.log("placar O");
-        console.log(this.placarJogO);
       }
-      
-      console.log('Jogador: ' + this.jogador + ' ganhou');
+
       this.mostraFim = true;
     }
     //deu velha
     if (!this.vitoria && this.numJogadas === 9) {
       this.jogador = 0;
-      console.log('Deu velha');
       this.mostraFim = true;
     }
   }
 
-  finalJogo(linha: number, coluna: number, jogador: number, tabuleiro: any) {
+  finalJogo(linha: number, coluna: number, jogador: number, tabuleiro: any): boolean {
     let final: boolean = false;
 
     // verifica se a linha do campo que o jogador marcou foi preenchida por completo por ele
@@ -112,15 +103,15 @@ export class JogoService {
     return final;
   }
 
-  mostrarX(linha: number, coluna: number) {
+  mostrarX(linha: number, coluna: number): boolean {
     return this.tabuleiro[linha][coluna] === 1;
   }
 
-  mostrarO(linha: number, coluna: number) {
+  mostrarO(linha: number, coluna: number): boolean {
     return this.tabuleiro[linha][coluna] === 2;
   }
 
-  mostrarFinalizacao() {
+  mostrarFinalizacao(): boolean {
     return this.mostraFim;
   }
 
@@ -128,19 +119,19 @@ export class JogoService {
     return this.jogador;
   }
 
-  getPlacarJogX() {
+  getPlacarJogX(): number {
     return this.placarJogX;
   }
 
-  getPlacarJogO() {
+  getPlacarJogO(): number {
     return this.placarJogO;
   }
 
-  setInicioJogo(start: boolean) {
+  setInicioJogo(start: boolean): void {
     this.inicioJogo = start;
   }
 
-  getInicioJogo() {
+  getInicioJogo(): boolean {
     return this.inicioJogo;
   }
 }

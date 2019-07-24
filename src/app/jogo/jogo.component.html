@@ -1,4 +1,4 @@
-<div class="bg">
+<div id="novoJogo" class="bg">
   <div class="ui container center aligned" *ngIf="!jogoIniciado">
     <button pageScroll type="button" class="ui black button" (click)="iniciarJogo()" href="#tabuleiro">Iniciar Jogo</button>
   </div>
@@ -37,7 +37,7 @@
 </div>
 
 <div id="tabuleiro">
-  <table class="tabuleiro" *ngIf="jogoIniciado">
+  <table class="tabuleiro" *ngIf="jogoIniciado" href="#novoJogo">
     <tr>
       <td class="celula celula1" [ngClass]="{ 
           'img-X': mostrarX(0,0), 
@@ -94,9 +94,8 @@
 
 <div *ngIf="mostrarFinalizacao()">
   <span>
-    <div class="ui container center aligned novoJogo">
+    <div class="ui container center aligned novoJogo" id="novoJogo">
       <button type="button" class="ui black button" (click)="novoJogo()">Novo Jogo</button>
     </div>
   </span>
 </div>
-

@@ -4,7 +4,7 @@ import { JogadorService } from "./../jogador/jogador.service";
 import { Jogador } from '../model/jogador';
 import { ToastrService } from 'ngx-toastr';
 import { DOCUMENT } from "@angular/common";
-import { PageScrollConfig, PageScrollService, PageScrollInstance } from "ngx-page-scroll-core";
+import { PageScrollService } from "ngx-page-scroll-core";
 
 @Component({
   selector: 'app-jogo',
@@ -31,10 +31,7 @@ export class JogoComponent implements OnInit {
     this.jogoService    = jogoService;
     this.jogadorService = jogadorService;
     this.toastr         = toastr;
-
-    //PageScrollConfig.defaultScrollOffset = 200;
-    //PageScrollConfig.defaultDuration = 250;
-   }
+  }
 
   ngOnInit() {
     this.jogoService.iniciarJogo();
@@ -44,19 +41,19 @@ export class JogoComponent implements OnInit {
     this.jogoIniciado = false;
   }
 
-  toastrSucess(msg: string, tipo: string) {
+  toastrSucess(msg: string, tipo: string): void {
     this.toastr.success(msg, tipo);
   }
 
-  toastrInfo(msg: string, tipo: string){
+  toastrInfo(msg: string, tipo: string): void {
     this.toastr.info(msg, tipo)
   }
 
-  toastrWarning(msg: string, tipo: string) {
+  toastrWarning(msg: string, tipo: string): void {
     this.toastr.warning(msg, tipo);
   }
 
-  jogar(linha: number, coluna: number) {
+  jogar(linha: number, coluna: number): void {
     this.jogoService.jogar(linha, coluna);
     this.placarJogX = this.jogoService.getPlacarJogX();
     this.placarJogO = this.jogoService.getPlacarJogO();
@@ -93,15 +90,15 @@ export class JogoComponent implements OnInit {
     return this.jogoService.mostrarO(linha, coluna);
   }
 
-  getJogadorX() {
+  getJogadorX(): Jogador {
     return this.jogadorService.jogX;
   }
 
-  getJogadorO() {
+  getJogadorO(): Jogador {
     return this.jogadorService.jogO;
   }
 
-  iniciarJogo() { // inicia o jogo buscando qual é o jogador que irá ser o primeiro(X)
+  iniciarJogo(): void { // inicia o jogo buscando qual é o jogador que irá ser o primeiro(X)
     this.jogadorX = this.getJogadorX();
     this.jogadorO = this.getJogadorO();
     
@@ -124,27 +121,27 @@ export class JogoComponent implements OnInit {
     }
   }
 
-  setInicioJogo(start: boolean) {
+  setInicioJogo(start: boolean): void {
     this.jogoService.setInicioJogo(start);
   }
 
-  mostrarFinalizacao() {
+  mostrarFinalizacao(): boolean {
     return this.jogoService.mostrarFinalizacao();
   }
 
-  mostrarGanhador() {
+  mostrarGanhador(): number {
     return this.jogoService.mostrarGanhador();
   }
 
-  getPlacarJogX() {
+  getPlacarJogX(): number{
     return this.jogoService.getPlacarJogX();
   }
 
-  getPlacarJogO() {
+  getPlacarJogO(): number {
     return this.jogoService.getPlacarJogO();
   }
 
-  novoJogo() {
+  novoJogo(): void {
     this.jogoService.iniciarJogo();
   }
 }

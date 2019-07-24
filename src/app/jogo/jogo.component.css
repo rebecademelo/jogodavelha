@@ -84,11 +84,6 @@ button:hover{
     border-right: 3px solid;
 }
 
-.novoJogo {
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
 @media (max-width: 353px) {
     #player.player {
         max-width: 100% !important;
@@ -342,7 +337,7 @@ button:hover{
 
 @media (min-width: 1200px) {
     #player.player {
-        margin-top: 25px !important;
+        margin-top: 70px !important;
         margin-bottom: 35px !important;
         font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
     }
