@@ -21,14 +21,14 @@ export class JogadorService {
   public jog1: Jogador = new Jogador("", "");
   public jog2: Jogador = new Jogador("", "");
 
-  isJog1: boolean;
-  isJog2: boolean;
+  isJog1: boolean;//
+  isJog2: boolean;//
 
   constructor(private http:Http) { 
     
   }
 
-  getNomeJogador(name) {
+  getNomeJogador(name: string) {
     var timestamp = Number(new Date());
     var hash = Md5.hashStr(timestamp + '5b11c81d22bf12e95875873f039ce3ad0dab666e' + '331c004ec798621bab61b479f4b36e11');
 

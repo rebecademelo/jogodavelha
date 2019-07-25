@@ -33,7 +33,7 @@ describe('JogoComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Cria o componente do jogo.', () => {
     expect(component).toBeTruthy();
   });
 });

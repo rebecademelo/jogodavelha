@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing'
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { JogadorComponent } from './jogador.component';
 import { JogadorService } from "./jogador.service";
+import { JogoService } from "../jogo/jogo.service";
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,7 +21,7 @@ describe('JogadorComponent', () => {
         ToastrModule.forRoot()
       ],
       declarations: [JogadorComponent],
-      providers: [JogadorService, ToastrService],
+      providers: [JogadorService, JogoService, ToastrService],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA
       ],
@@ -33,7 +34,14 @@ describe('JogadorComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', inject([JogadorService, ToastrService], (service: JogadorService, toastrService: ToastrService) => {
+  it('Cria o componente do Jogador.', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Verifica se o jogo foi iniciado.', inject([JogoService], (jogoService: JogoService) => {
+    jogoService.setInicioJogo(true);
+    let inicioJogo: boolean = component.jogoIniciado();
+    
+    expect(inicioJogo).toBeTruthy();
   }));
 });

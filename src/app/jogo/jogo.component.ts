@@ -129,15 +129,15 @@ export class JogoComponent implements OnInit {
     return this.jogoService.mostrarFinalizacao();
   }
 
-  mostrarGanhador(): number {
+  mostrarGanhador(): number {//
     return this.jogoService.mostrarGanhador();
   }
 
-  getPlacarJogX(): number{
+  getPlacarJogX(): number{//
     return this.jogoService.getPlacarJogX();
   }
 
-  getPlacarJogO(): number {
+  getPlacarJogO(): number {//
     return this.jogoService.getPlacarJogO();
   }
 
