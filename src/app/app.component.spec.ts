@@ -20,19 +20,19 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
+  it('Cria o AppComponent.', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'jogodavelha'`, () => {
+  it(`Título deve ter título 'Jogo da Velha'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('Jogo da Velha');
   });
 
-  it('should render title in a h1 tag', () => {
+  it('Renderiza o título em uma tag <h1>.', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;

@@ -90,11 +90,11 @@ export class JogoComponent implements OnInit {
     return this.jogoService.mostrarO(linha, coluna);
   }
 
-  getJogadorX(): Jogador {
+  getJogadorX(): Jogador {//
     return this.jogadorService.jogX;
   }
 
-  getJogadorO(): Jogador {
+  getJogadorO(): Jogador {//
     return this.jogadorService.jogO;
   }
 
