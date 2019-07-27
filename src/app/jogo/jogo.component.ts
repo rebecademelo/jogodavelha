@@ -20,17 +20,14 @@ export class JogoComponent implements OnInit {
   thumbnailJogO: string;
   placarJogX: number;
   placarJogO: number;
-  jogoIniciado: boolean;//
+  jogoIniciado: boolean;
 
   constructor(private jogoService: JogoService, 
               private jogadorService: JogadorService, 
               private toastr: ToastrService,
               private pageScrollService: PageScrollService,
               @Inject (DOCUMENT) private document: any) { 
-                
-    /*this.jogoService    = jogoService;
-    this.jogadorService = jogadorService;
-    this.toastr         = toastr;*/
+              
   }
 
   ngOnInit() {
@@ -38,7 +35,7 @@ export class JogoComponent implements OnInit {
     this.jogoService.zerarPlacar();
     this.placarJogX   = this.jogoService.getPlacarJogX();
     this.placarJogO   = this.jogoService.getPlacarJogO();
-    this.jogoIniciado = false;//
+    this.jogoIniciado = false;
   }
 
   toastrSucess(msg: string, tipo: string): void {
@@ -56,61 +53,10 @@ export class JogoComponent implements OnInit {
     this.toastr.warning(msg, tipo);
   }
 
-  jogar(linha: number, coluna: number): void {
-    // chama o método do serviço do jogo realizando a jogada atual
-    this.jogoService.jogar(linha, coluna);
-
-    // retorna o placar para cada jogador
-    this.placarJogX = this.jogoService.getPlacarJogX();
-    this.placarJogO = this.jogoService.getPlacarJogO();
-    
-    this.mostrarGanhador();
-    /*
-    // verifica se a partida acabou e se teve um ganhador ou se o jogo deu velha
-    let fim: boolean = false;
-    let ganhador: number;
-
-    fim       = this.jogoService.mostrarFinalizacao();
-    ganhador  = this.jogoService.mostrarGanhador();
-    
-    if (fim) {
-      switch(ganhador) {
-        case 0: {
-          this.toastrInfo("A partida deu velha!", "Empate");
-          break;
-        }
-        case 1: {
-          this.toastrSucess("Jogador X: " + this.jogadorService.jogX.name + " ganhou!", "Vitória");
-          break;
-        }
-        case 2: {
-          this.toastrSucess("Jogador O: " + this.jogadorService.jogO.name + " ganhou!", "Vitória");
-          break;
-        }
-      }
-    }*/
-  }
-  // mostra o X na célula selecionada se o jogador da vez for o X
-  mostrarX(linha: number, coluna: number): boolean {
-    return this.jogoService.mostrarX(linha, coluna);
-  }
-// mostra o O na célula selecionada se o jogador da vez for o O
-  mostrarO(linha: number, coluna: number): boolean {
-    return this.jogoService.mostrarO(linha, coluna);
-  }
-
-  /*getJogadorX(): Jogador {//
-    return this.jogadorService.jogX;
-  }
-
-  getJogadorO(): Jogador {//
-    return this.jogadorService.jogO;
-  }*/
-  
   // inicia o jogo buscando qual é o jogador que irá ser o primeiro(X)
   iniciarJogo(): void {
-    this.jogadorX = this.jogadorService.jogX;//this.getJogadorX();
-    this.jogadorO = this.jogadorService.jogO;//this.getJogadorO();
+    this.jogadorX = this.jogadorService.jogX;
+    this.jogadorO = this.jogadorService.jogO;
     
     // valida se ambos os jogadores foram escolhidos antes de iniciar o jogo
     if (this.jogadorX == undefined || this.jogadorO == undefined) {
@@ -132,21 +78,40 @@ export class JogoComponent implements OnInit {
       });
     }
   }
+
   // seta o jogo como iniciado para esconder os campos de busca dos personagens e cards
   setInicioJogo(start: boolean): void {
     this.jogoService.setInicioJogo(start);
   }
+
+  jogar(linha: number, coluna: number): void {
+    // chama o método do serviço do jogo realizando a jogada atual
+    this.jogoService.jogar(linha, coluna);
+
+    // retorna o placar para cada jogador
+    this.placarJogX = this.jogoService.getPlacarJogX();
+    this.placarJogO = this.jogoService.getPlacarJogO();
+    
+    this.mostrarGanhador();
+  }
+
+  // mostra o X na célula selecionada se o jogador da vez for o X
+  mostrarX(linha: number, coluna: number): boolean {
+    return this.jogoService.mostrarX(linha, coluna);
+  }
+
+  // mostra o O na célula selecionada se o jogador da vez for o O
+  mostrarO(linha: number, coluna: number): boolean {
+    return this.jogoService.mostrarO(linha, coluna);
+  }
+  
   // verifica se a partida foi finalizada e se sim desabilita o tabuleiro e mostra o botão para iniciar um novo jogo
   mostrarFinalizacao(): boolean {
     return this.jogoService.mostrarFinalizacao();
   }
 
-  /*mostrarGanhador(): number {//
-    return this.jogoService.mostrarGanhador();
-  }*/
-
+  // verifica se a partida acabou e se teve um ganhador ou se o jogo deu velha
   mostrarGanhador(): void {
-    // verifica se a partida acabou e se teve um ganhador ou se o jogo deu velha
     let fim: boolean = false;
     let ganhador: number;
 
@@ -170,14 +135,6 @@ export class JogoComponent implements OnInit {
       }
     }
   }
-
-  /*getPlacarJogX(): number{//
-    return this.jogoService.getPlacarJogX();
-  }
-  
-  getPlacarJogO(): number {//
-    return this.jogoService.getPlacarJogO();
-  }*/
 
   novoJogo(): void {
     this.jogoService.iniciarJogo();
