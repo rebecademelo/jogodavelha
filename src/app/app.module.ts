@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
-import { HttpModule } from "@angular/http";
+import { HttpModule } from "@angular/http";//
+import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,7 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule,
+    HttpModule,//
+    HttpClientModule,
     FormsModule,
     JogadorModule,
     JogoModule,

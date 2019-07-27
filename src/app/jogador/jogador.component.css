@@ -41,10 +41,6 @@ button:hover{
     color: #fff;
 }
 
-.btn-buscar {
-    background-color: black !important;
-}
-
 .jogador {
     width: 215px;
 }
@@ -80,11 +76,11 @@ button:hover{
     }
 
     .jog1, #card1.card1 {
-        margin-bottom: 30px !important;
+        margin-bottom: 30px;
     }
 
     .jog2 {
-        margin-bottom: 15px !important;
+        margin-bottom: 15px;
     }
 
     #card2.card2 {
@@ -95,22 +91,21 @@ button:hover{
 @media (min-width: 676px) and (max-width: 767px) {
     .field {
         align-content: center;
-        margin-bottom: 5px !important;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+        margin-bottom: 5px ;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif;
     }
 
     .jog1 {
-        margin-right: 5px !important;
+        margin-right: 5px;
     }
 
     .jog2 {
-        margin-left: 5px !important;
+        margin-left: 5px;
     }
 
     .playerCard {
         align-content: center;
         margin-bottom: 35px !important;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important; 
     }
 
     #card2.card2 {
@@ -121,44 +116,42 @@ button:hover{
 @media (min-width: 768px) {
     .field {
         align-content: center;
-        margin-bottom: 5px !important;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+        margin-bottom: 5px;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif;
     }
 
     .jog1 {
-        margin-right: 5px !important;
+        margin-right: 5px;
     }
 
     .jog2 {
-        margin-left: 5px !important;
+        margin-left: 5px;
     }
 
     .playerCard {
         align-content: center;
         margin-bottom: 35px !important;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important; 
     }
 }
 
 @media (min-width: 1024px) {
     .field {
         align-content: center;
-        margin-bottom: 15px !important;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important;
+        margin-bottom: 15px;
+        font-family: 'Marvel', Arial, Helvetica, sans-serif;
     }
 
     .jog1 {
-        margin-right: 15px !important;
+        margin-right: 15px;
     }
 
     .jog2 {
-        margin-left: 15px !important;
+        margin-left: 15px;
     }
 
     .playerCard {
         align-content: center;
         margin-bottom: 35px;
-        font-family: 'Marvel', Arial, Helvetica, sans-serif !important; 
     }
 
     #card1.card1 {

@@ -71,7 +71,7 @@ export class JogoService {
 
       this.mostraFim = true;
     }
-    //deu velha
+    // o jogo terminou e não teve vitória (deu velha)
     if (!this.vitoria && this.numJogadas === 9) {
       this.jogador = 0;
       this.mostraFim = true;

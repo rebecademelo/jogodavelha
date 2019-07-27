@@ -20,7 +20,7 @@ export class JogoComponent implements OnInit {
   thumbnailJogO: string;
   placarJogX: number;
   placarJogO: number;
-  jogoIniciado: boolean;
+  jogoIniciado: boolean;//
 
   constructor(private jogoService: JogoService, 
               private jogadorService: JogadorService, 
@@ -28,9 +28,9 @@ export class JogoComponent implements OnInit {
               private pageScrollService: PageScrollService,
               @Inject (DOCUMENT) private document: any) { 
                 
-    this.jogoService    = jogoService;
+    /*this.jogoService    = jogoService;
     this.jogadorService = jogadorService;
-    this.toastr         = toastr;
+    this.toastr         = toastr;*/
   }
 
   ngOnInit() {
@@ -38,26 +38,35 @@ export class JogoComponent implements OnInit {
     this.jogoService.zerarPlacar();
     this.placarJogX   = this.jogoService.getPlacarJogX();
     this.placarJogO   = this.jogoService.getPlacarJogO();
-    this.jogoIniciado = false;
+    this.jogoIniciado = false;//
   }
 
   toastrSucess(msg: string, tipo: string): void {
+    // mostra notificação de sucesso
     this.toastr.success(msg, tipo);
   }
 
   toastrInfo(msg: string, tipo: string): void {
+    // mostra notificação de informação
     this.toastr.info(msg, tipo)
   }
 
   toastrWarning(msg: string, tipo: string): void {
+    // mostra notificação de aviso
     this.toastr.warning(msg, tipo);
   }
 
   jogar(linha: number, coluna: number): void {
+    // chama o método do serviço do jogo realizando a jogada atual
     this.jogoService.jogar(linha, coluna);
+
+    // retorna o placar para cada jogador
     this.placarJogX = this.jogoService.getPlacarJogX();
     this.placarJogO = this.jogoService.getPlacarJogO();
-
+    
+    this.mostrarGanhador();
+    /*
+    // verifica se a partida acabou e se teve um ganhador ou se o jogo deu velha
     let fim: boolean = false;
     let ganhador: number;
 
@@ -66,43 +75,45 @@ export class JogoComponent implements OnInit {
     
     if (fim) {
       switch(ganhador) {
-        case ganhador = 1: {
-          this.toastrSucess("Jogador X: " + this.jogadorService.jogX.name + " ganhou!", "Vitória");
-          break;
-        }
-        case ganhador = 2: {
-          this.toastrSucess("Jogador O: " + this.jogadorService.jogO.name + " ganhou!", "Vitória");
-          break;
-        }
-        case ganhador = 0: {
+        case 0: {
           this.toastrInfo("A partida deu velha!", "Empate");
           break;
         }
+        case 1: {
+          this.toastrSucess("Jogador X: " + this.jogadorService.jogX.name + " ganhou!", "Vitória");
+          break;
+        }
+        case 2: {
+          this.toastrSucess("Jogador O: " + this.jogadorService.jogO.name + " ganhou!", "Vitória");
+          break;
+        }
       }
-    }
+    }*/
   }
-
+  // mostra o X na célula selecionada se o jogador da vez for o X
   mostrarX(linha: number, coluna: number): boolean {
     return this.jogoService.mostrarX(linha, coluna);
   }
-
+// mostra o O na célula selecionada se o jogador da vez for o O
   mostrarO(linha: number, coluna: number): boolean {
     return this.jogoService.mostrarO(linha, coluna);
   }
 
-  getJogadorX(): Jogador {//
+  /*getJogadorX(): Jogador {//
     return this.jogadorService.jogX;
   }
 
   getJogadorO(): Jogador {//
     return this.jogadorService.jogO;
-  }
-
-  iniciarJogo(): void { // inicia o jogo buscando qual é o jogador que irá ser o primeiro(X)
-    this.jogadorX = this.getJogadorX();
-    this.jogadorO = this.getJogadorO();
+  }*/
+  
+  // inicia o jogo buscando qual é o jogador que irá ser o primeiro(X)
+  iniciarJogo(): void {
+    this.jogadorX = this.jogadorService.jogX;//this.getJogadorX();
+    this.jogadorO = this.jogadorService.jogO;//this.getJogadorO();
     
-    if (this.jogadorX === undefined || this.jogadorO === undefined) {
+    // valida se ambos os jogadores foram escolhidos antes de iniciar o jogo
+    if (this.jogadorX == undefined || this.jogadorO == undefined) {
       this.toastrWarning("Escolha os jogadores antes de iniciar a partida!", "Aviso");
     } else {
       this.jogoIniciado = true;
@@ -114,32 +125,59 @@ export class JogoComponent implements OnInit {
       this.nomeJogO = this.jogadorO.name;
       this.thumbnailJogO = this.jogadorO.thumbnail["path"] + "." + this.jogadorO.thumbnail["extension"];
 
+      // animação que leva os jogadores até o tabuleiro quando iniciado o jogo
       this.pageScrollService.scroll({
         document: this.document,
         scrollTarget: '#tabuleiro'
       });
     }
   }
-
+  // seta o jogo como iniciado para esconder os campos de busca dos personagens e cards
   setInicioJogo(start: boolean): void {
     this.jogoService.setInicioJogo(start);
   }
-
+  // verifica se a partida foi finalizada e se sim desabilita o tabuleiro e mostra o botão para iniciar um novo jogo
   mostrarFinalizacao(): boolean {
     return this.jogoService.mostrarFinalizacao();
   }
 
-  mostrarGanhador(): number {//
+  /*mostrarGanhador(): number {//
     return this.jogoService.mostrarGanhador();
+  }*/
+
+  mostrarGanhador(): void {
+    // verifica se a partida acabou e se teve um ganhador ou se o jogo deu velha
+    let fim: boolean = false;
+    let ganhador: number;
+
+    fim       = this.jogoService.mostrarFinalizacao();
+    ganhador  = this.jogoService.mostrarGanhador();
+    
+    if (fim) {
+      switch(ganhador) {
+        case 0: {
+          this.toastrInfo("A partida deu velha!", "Empate");
+          break;
+        }
+        case 1: {
+          this.toastrSucess("Jogador X: " + this.jogadorService.jogX.name + " ganhou!", "Vitória");
+          break;
+        }
+        case 2: {
+          this.toastrSucess("Jogador O: " + this.jogadorService.jogO.name + " ganhou!", "Vitória");
+          break;
+        }
+      }
+    }
   }
 
-  getPlacarJogX(): number{//
+  /*getPlacarJogX(): number{//
     return this.jogoService.getPlacarJogX();
   }
-
+  
   getPlacarJogO(): number {//
     return this.jogoService.getPlacarJogO();
-  }
+  }*/
 
   novoJogo(): void {
     this.jogoService.iniciarJogo();

@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Jogador } from "./../model/jogador";
 import { Md5 } from 'ts-md5/dist/md5';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JogadorService {
-  public jogadores = new Array<Jogador>();
+  public jogador: Jogador;
   jogador1: Jogador;
   jogador2: Jogador;
   
@@ -24,19 +23,22 @@ export class JogadorService {
   isJog1: boolean;//
   isJog2: boolean;//
 
-  constructor(private http:Http) { 
+  constructor(private httpClient: HttpClient) { 
     
   }
 
   getNomeJogador(name: string) {
+    // faz uma consulta na API da Marvel buscando o personagem escolhido pelo nome
     var timestamp = Number(new Date());
-    var hash = Md5.hashStr(timestamp + '5b11c81d22bf12e95875873f039ce3ad0dab666e' + '331c004ec798621bab61b479f4b36e11');
+    var hash      = Md5.hashStr(timestamp + '5b11c81d22bf12e95875873f039ce3ad0dab666e' + '331c004ec798621bab61b479f4b36e11');
 
-    let url = 'http://gateway.marvel.com/v1/public/characters';
-    let params = "?apikey=331c004ec798621bab61b479f4b36e11"
-               + "&ts=" + timestamp
-               + "&hash=" + hash
-               + "&name=" + name;
-    return this.http.get(url + params).pipe(map((res: Response) => res));
+    const url     = 'http://gateway.marvel.com/v1/public/characters';
+    var params    = new HttpParams()
+                        .set('apikey', '331c004ec798621bab61b479f4b36e11')
+                        .set('ts', timestamp.toString())
+                        .set('hash', hash.toString())
+                        .set('name', name);
+
+    return this.httpClient.get(url, { params: params }).pipe();
   }
 }

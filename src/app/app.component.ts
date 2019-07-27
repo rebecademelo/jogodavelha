@@ -10,7 +10,7 @@ import { JogoService } from "./jogo/jogo.service";
 export class AppComponent {
   title = "Jogo da Velha";
 
-  constructor(public jService: JogadorService, public jogoService: JogoService) {
+  constructor(public jogadorService: JogadorService, public jogoService: JogoService) {
 
   }
 
