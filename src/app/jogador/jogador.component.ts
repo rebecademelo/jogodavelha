@@ -95,7 +95,7 @@ export class JogadorComponent implements OnInit {
   }
 
   // se os dois jogadores já tiverem sido escolhidos sorteia qual será o primeiro(X) e qual será o segundo(O)
-  sorteiaOrdem() {
+  sorteiaOrdem(): void {
     let picker = Math.floor((Math.random() * 2) + 1);
 
     if (picker === 1) {
