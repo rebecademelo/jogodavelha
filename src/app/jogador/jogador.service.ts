@@ -8,20 +8,20 @@ import { Md5 } from 'ts-md5/dist/md5';
 })
 export class JogadorService {
   public jogador: Jogador;
-  jogador1: Jogador;
-  jogador2: Jogador;
+  public jogador1: Jogador;
+  public jogador2: Jogador;
   
-  jogX: Jogador;
-  jogO: Jogador;
+  public jogX: Jogador;
+  public jogO: Jogador;
 
-  jogadorX: Jogador;
-  jogadorO: Jogador;
+  public jogadorX: Jogador;
+  public jogadorO: Jogador;
 
   public jog1: Jogador = new Jogador("", "");
   public jog2: Jogador = new Jogador("", "");
 
-  isJog1: boolean;//
-  isJog2: boolean;//
+  public isJog1: boolean;
+  public isJog2: boolean;
 
   constructor(private httpClient: HttpClient) { 
     

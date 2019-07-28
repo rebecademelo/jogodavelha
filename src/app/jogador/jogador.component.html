@@ -3,14 +3,14 @@
   <div class="players">
     <div class="ui action input field jog1" *ngIf="!jogoIniciado()">
       <input type="text" class="jogador" placeholder="Escolha o primeiro jogador..." name="firstCharacter" [(ngModel)]="firstCharacter">
-      <button type="button" class="ui icon black button" (click)="buscarPersonagem(firstCharacter, 1)">
+      <button type="button" class="ui icon black button" [ngClass]="{ 'loading': buscaJog1, 'disabled': buscaJog1 }" (click)="buscarPersonagem(firstCharacter, 1)">
         <i class="inverted search icon"></i>
       </button>
     </div>
   
     <div class="ui action input field jog2" *ngIf="!jogoIniciado()">
       <input type="text" class="jogador" placeholder="Escolha o segundo jogador..." name="secondCharacter" [(ngModel)]="secondCharacter" />
-      <button type="button" class="ui icon black button" (click)="buscarPersonagem(secondCharacter, 2)">
+      <button type="button" class="ui icon black button" [ngClass]="{ 'loading': buscaJog2, 'disabled': buscaJog2 }" (click)="buscarPersonagem(secondCharacter, 2)">
         <i class="inverted search icon"></i>
       </button>
     </div>

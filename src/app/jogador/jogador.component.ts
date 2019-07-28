@@ -12,7 +12,8 @@ import { JogoService } from "./../jogo/jogo.service";
 export class JogadorComponent implements OnInit {
   jog1Selecionado: boolean;
   jog2Selecionado: boolean;
-  retornou: boolean;
+  buscaJog1: boolean = false;
+  buscaJog2: boolean = false;
 
   constructor(private service: JogadorService, 
               private jogoService: JogoService, 
@@ -31,10 +32,23 @@ export class JogadorComponent implements OnInit {
   }
 
   buscarPersonagem(personagem: string, tipo: number): void {
+    // verifica qual jogador está sendo buscado e não permite que o botão de busca seja clicado enquanto a requisição a API está sendo feita
+    if (tipo === 1) {
+      this.buscaJog1 = true;
+    } else if (tipo === 2) {
+      this.buscaJog2 = true;
+    }
     // chama o metódo do serviço do jogador que busca o personagem buscado na API da Marvel
     this.service.getNomeJogador(personagem).subscribe(
       data => {
         this.service.jogador = data["data"]["results"]["0"];
+        
+        // verifica qual jogador estava sendo buscado e retorna o botão de busca ao seu estado normal
+        if (tipo === 1) {
+          this.buscaJog1 = false;
+        } else if (tipo === 2) {
+          this.buscaJog2 = false;
+        }
 
         if (this.service.jogador == undefined) {
           this.toastrError("Personagem não encontrado, favor buscar outro.", "Erro");
@@ -64,7 +78,7 @@ export class JogadorComponent implements OnInit {
     // verifica se é o primeiro jogador buscado e retorna seu nome e thumbnail
     if (tipo === 1) {
       this.service.jogador1 = jogador;
-      this.service.isJog1 = true;//
+      this.service.isJog1 = true;
       this.service.jog1.name = this.service.jogador1.name;
       this.service.jog1.thumbnail = this.service.jogador1.thumbnail;
       this.jog1Selecionado = true;
@@ -73,7 +87,7 @@ export class JogadorComponent implements OnInit {
     // verifica se é o segundo jogador buscado e retorna seu nome e thumbnail
     if (tipo === 2) {
       this.service.jogador2 = jogador;
-      this.service.isJog2 = true;//
+      this.service.isJog2 = true;
       this.service.jog2.name = this.service.jogador2.name;
       this.service.jog2.thumbnail = this.service.jogador2.thumbnail;
       this.jog2Selecionado = true;
