@@ -7,6 +7,7 @@ import { Md5 } from 'ts-md5/dist/md5';
   providedIn: 'root'
 })
 export class JogadorService {
+  // variavéis utilizadas pelo componente do jogador
   public jogador: Jogador;
   public jogador1: Jogador;
   public jogador2: Jogador;
